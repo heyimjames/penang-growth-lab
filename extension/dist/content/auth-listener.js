@@ -1,0 +1,1 @@
+window.addEventListener("message",e=>{var a;if(e.origin===window.location.origin&&((a=e.data)==null?void 0:a.type)==="NOREPLY_AUTH_CALLBACK"){const{access_token:o,refresh_token:i,user:n}=e.data.payload;chrome.runtime.sendMessage({type:"AUTH_CALLBACK",payload:{access_token:o,refresh_token:i,user:n}})}});

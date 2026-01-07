@@ -1,0 +1,98 @@
+name: Build Feature with Claude
+
+on:
+  repository_dispatch:
+    types: [build-feature]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  build-feature:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Create feature branch
+        run: |
+          BRANCH_NAME="feature/auto-${{ github.event.client_payload.feature_id }}"
+          git checkout -b "$BRANCH_NAME"
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+
+      - name: Run Claude Code
+        uses: anthropics/claude-code-action@beta
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: ${{ github.event.client_payload.prompt }}
+          allowed_tools: "Read,Write,Edit,Glob,Grep,Bash"
+          max_turns: 50
+
+      - name: Run lint and type check
+        continue-on-error: true
+        run: |
+          pnpm lint --fix || true
+          pnpm tsc --noEmit || true
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -A
+          git diff --staged --quiet || git commit -m "feat: ${{ github.event.client_payload.title }}
+
+          Automated implementation for feature request.
+
+          🤖 Generated with [Claude Code](https://claude.ai/code)
+
+          Co-Authored-By: Claude <noreply@anthropic.com>"
+
+      - name: Push branch
+        run: git push -u origin "${{ env.BRANCH_NAME }}"
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        id: create-pr
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ env.BRANCH_NAME }}
+          base: main
+          title: "feat: ${{ github.event.client_payload.title }}"
+          body: ${{ github.event.client_payload.body }}
+          labels: |
+            feature-request
+            ai-generated
+            auto-pr
+
+      - name: Notify Slack of PR
+        if: steps.create-pr.outputs.pull-request-url
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          if [ -n "$SLACK_WEBHOOK_URL" ]; then
+            curl -X POST -H 'Content-type: application/json' \
+              --data "{\"text\":\"🚀 PR created for feature request: ${{ github.event.client_payload.title }}\n<${{ steps.create-pr.outputs.pull-request-url }}|View Pull Request>\"}" \
+              "$SLACK_WEBHOOK_URL"
+          fi
+
+      - name: Output PR URL
+        run: |
+          echo "Pull Request: ${{ steps.create-pr.outputs.pull-request-url }}"
+          echo "Feature ID: ${{ github.event.client_payload.feature_id }}"

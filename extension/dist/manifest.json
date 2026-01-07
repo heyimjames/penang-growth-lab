@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "NoReply - Consumer Advocacy Assistant",
+  "version": "1.0.0",
+  "description": "Get real-time legal guidance and AI-powered response suggestions during live chats with companies.",
+  "permissions": [
+    "sidePanel",
+    "storage",
+    "activeTab",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.usenoreply.com/*",
+    "https://usenoreply.com/*",
+    "https://*.supabase.co/*"
+  ],
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.usenoreply.com/auth/extension-callback*",
+        "https://usenoreply.com/auth/extension-callback*"
+      ],
+      "js": ["content/auth-listener.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "side_panel": {
+    "default_path": "src/sidepanel/index.html"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    },
+    "default_title": "Open NoReply Sidebar"
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  }
+}
