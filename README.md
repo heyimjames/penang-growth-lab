@@ -1,5 +1,3 @@
-<div align="center">
-
 ```
     ██████╗ ███████╗███╗   ██╗ █████╗ ███╗   ██╗ ██████╗ 
     ██╔══██╗██╔════╝████╗  ██║██╔══██╗████╗  ██║██╔════╝ 
@@ -35,371 +33,519 @@
 
 *Calculators, AI-powered tools, and expert guides to help DTC brands grow profitably. Built by the team at Penang Media.*
 
-[![Next.js](https://img.shields.io/badge/Next.js-16.1.1-black?style=flat-square&logo=next.js)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19.2.0-61DAFB?style=flat-square&logo=react)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1.9-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
+[Next.js](https://nextjs.org/)
+[React](https://react.dev/)
+[TypeScript](https://www.typescriptlang.org/)
+[Tailwind CSS](https://tailwindcss.com/)
 
-[![Claude AI](https://img.shields.io/badge/Claude-Anthropic-D97706?style=flat-square&logo=anthropic)](https://www.anthropic.com/)
-[![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?style=flat-square&logo=vercel)](https://vercel.com/)
+[Claude AI](https://www.anthropic.com/)
+[Vercel](https://vercel.com/)
 
-[![License](https://img.shields.io/badge/License-Private-red?style=flat-square)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-Production-success?style=flat-square)](https://growth.penangmedia.com)
-[![Version](https://img.shields.io/badge/Version-0.1.0-blue?style=flat-square)](package.json)
+[License](LICENSE)
+[Status](https://growth.penangmedia.com)
+[Version](package.json)
 
 [Website](https://growth.penangmedia.com) · [Tools](https://growth.penangmedia.com/tools) · [Guides](https://growth.penangmedia.com/guides) · [Penang Media](https://www.penangmedia.com)
 
-</div>
+# Penang Growth Lab
+
+A Next.js web app with AI-powered marketing tools. This guide is written for **complete beginners** who want to learn "vibe coding" — using AI assistants like **Cursor** or **Claude Code** to build and modify projects.
 
 ---
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Tools](#tools)
-- [Guides](#guides)
-- [Components](#components)
-- [API Routes](#api-routes)
-- [Environment Variables](#environment-variables)
-- [Commands](#commands)
-- [Design System](#design-system)
+1. [What is Vibe Coding?](#what-is-vibe-coding)
+2. [Getting the Project on Your Computer](#getting-the-project-on-your-computer)
+3. [Running the App Locally](#running-the-app-locally)
+4. [Making Changes with AI](#making-changes-with-ai)
+5. [Cursor: Ask vs Agent Mode](#cursor-ask-vs-agent-mode)
+6. [Claude Code: Custom Agents](#claude-code-custom-agents)
+7. [What are MCPs?](#what-are-mcps)
+8. [Saving Your Changes (Git Commits)](#saving-your-changes-git-commits)
+9. [Pushing Live to Vercel](#pushing-live-to-vercel)
+10. [Fixing Errors & Rolling Back](#fixing-errors--rolling-back)
 
 ---
 
-## Overview
+## What is Vibe Coding?
 
-**Penang Growth Lab** is a free resource hub for e-commerce and DTC brands, featuring calculators, AI-powered content tools, and expert growth guides. Built by Penang Media based on insights from managing $50M+ in ad spend across 100+ brands.
+**Vibe coding** means using AI to help you write code by describing what you want in plain English. You don't need to know how to code — you just need to explain what you want, and the AI writes the code for you.
 
-### Why Penang Growth Lab?
+Think of it like having a really smart coding assistant that:
 
-| Problem | Solution |
-|---------|----------|
-| Complex ROAS and margin calculations | Instant calculators for all key metrics |
-| Writing high-converting ad copy is hard | AI-powered generators trained on proven frameworks |
-| Understanding when to scale is unclear | Scaling readiness quiz with personalized recommendations |
-| Finding reliable benchmarks is difficult | Industry benchmarks based on real campaign data |
-| No clear attribution strategy | UTM builders and attribution model guides |
-
-### Key Stats
-
-- **25+** free tools
-- **5** expert guides
-- **9** calculators
-- **7** AI-powered tools
-- **100+** brands scaled
+- Understands your project
+- Can read and edit files
+- Runs commands for you
+- Fixes errors when things break
 
 ---
 
-## Features
+## Getting the Project on Your Computer
 
-### Calculator Tools
+### Option A: Using Cursor
 
-| Tool | Description |
-|------|-------------|
-| **ROAS Calculator** | Calculate Return on Ad Spend from revenue and ad spend |
-| **Break-Even ROAS** | Determine minimum ROAS needed based on margins |
-| **Profit Margin Calculator** | Calculate gross and net profit margins |
-| **CPM/CPC/CTR Calculator** | Calculate essential ad metrics |
-| **LTV Calculator** | Calculate Customer Lifetime Value |
-| **CAC Calculator** | Calculate Customer Acquisition Cost and LTV:CAC ratio |
-| **Ad Budget Planner** | Plan budget based on revenue goals and target ROAS |
-| **MER Calculator** | Marketing Efficiency Ratio (Total Revenue / Total Spend) |
-| **Contribution Margin** | Calculate per-unit contribution margin |
+1. **Install Cursor** — Download from [cursor.com](https://cursor.com) and install it
+2. **Open Cursor** and press `Cmd + Shift + P` (Mac) or `Ctrl + Shift + P` (Windows)
+3. Type **"Git: Clone"** and press Enter
+4. Paste the repository URL:
+  ```
+   https://github.com/YOUR-USERNAME/penang-growth-lab.git
+  ```
+5. Choose a folder on your computer to save it
+6. Click **"Open"** when it asks if you want to open the cloned repository
 
-### AI-Powered Tools
+### Option B: Using Claude Code (Terminal)
 
-| Tool | Description |
-|------|-------------|
-| **Ad Copy Generator** | Generate Meta and Google Ads copy variations |
-| **Headline Generator** | Create attention-grabbing headlines |
-| **Product Description Writer** | Write compelling product descriptions |
-| **Creative Brief Generator** | Generate comprehensive creative briefs |
-| **Ad Creative Analyzer** | Get AI feedback on ad creatives |
-| **Landing Page Analyzer** | Analyze pages for conversion optimization |
-| **Copywriting Assistant** | Generate marketing copy with AI |
-
-### Analytics & Tracking
-
-| Tool | Description |
-|------|-------------|
-| **Scaling Readiness Quiz** | Assess if your brand is ready to scale |
-| **Industry Benchmarks** | Compare metrics to industry standards |
-| **Ad Fatigue Calculator** | Predict when ads will experience fatigue |
-| **UTM Builder** | Build tracking URLs for campaigns |
-| **A/B Test Calculator** | Calculate statistical significance |
-| **Attribution Guide** | Understand attribution models |
-
-### Email Marketing
-
-| Tool | Description |
-|------|-------------|
-| **Email Subject Generator** | Generate high-open-rate subject lines |
-| **Email Flow Planner** | Plan welcome, cart, and winback flows |
+1. **Install Claude Code** — Follow instructions at [claude.ai/code](https://claude.ai/code)
+2. Open your terminal
+3. Navigate to where you want the project:
+  ```bash
+   cd ~/Projects
+  ```
+4. Clone the repository:
+  ```bash
+   git clone https://github.com/YOUR-USERNAME/penang-growth-lab.git
+  ```
+5. Enter the project folder:
+  ```bash
+   cd penang-growth-lab
+  ```
+6. Start Claude Code:
+  ```bash
+   claude
+  ```
 
 ---
 
-## Tech Stack
+## Running the App Locally
 
-### Frontend
+Before you can see your changes, you need to run the app on your computer.
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| [Next.js](https://nextjs.org/) | 16.1.1 | React framework with App Router |
-| [React](https://react.dev/) | 19.2.0 | UI library with Server Components |
-| [TypeScript](https://www.typescriptlang.org/) | 5.x | Type safety |
-| [Tailwind CSS](https://tailwindcss.com/) | 4.1.9 | Utility-first CSS with CSS variables |
-| [shadcn/ui](https://ui.shadcn.com/) | Latest | Component library |
-| [Radix UI](https://www.radix-ui.com/) | Latest | Accessible component primitives |
-| [React Hook Form](https://react-hook-form.com/) | 7.60.0 | Form management |
-| [Zod](https://zod.dev/) | 3.25.76 | Schema validation |
-| [Recharts](https://recharts.org/) | 2.15.4 | Data visualization |
-| [Motion](https://motion.dev/) | 12.23.25 | Animations |
+### Step 1: Install Dependencies
 
-### Backend & Services
-
-| Service | Purpose |
-|---------|---------|
-| [Anthropic Claude](https://www.anthropic.com/) | AI for content generation |
-| [Vercel](https://vercel.com/) | Hosting and deployment |
-| [Vercel Analytics](https://vercel.com/analytics) | Usage analytics |
-
-### Icons
-
-| Library | Usage |
-|---------|-------|
-| [Lucide React](https://lucide.dev/) | General UI icons |
-
----
-
-## Getting Started
-
-### Prerequisites
-
-- **Node.js** 18.0+
-- **pnpm** 8.0+ (recommended)
-- **Anthropic API** key (for AI tools)
-
-### Installation
+First time only — this downloads all the packages the project needs:
 
 ```bash
-# Clone the repository
-git clone https://github.com/heyimjames/penang-growth-lab.git
-cd penang-growth-lab
-
-# Install dependencies
 pnpm install
-
-# Set up environment variables
-cp .env.example .env.local
-# Edit .env.local with your API keys
-
-# Start development server
-pnpm dev
-
-# Open http://localhost:3000
 ```
 
----
+> **Don't have pnpm?** Install it first: `npm install -g pnpm`
 
-## Project Structure
-
-```
-penang-growth-lab/
-├── app/                              # Next.js App Router
-│   ├── (dashboard)/                  # Protected/authenticated routes
-│   │   ├── layout.tsx                # Dashboard layout with sidebar
-│   │   ├── dashboard/page.tsx        # Main dashboard
-│   │   └── account/page.tsx          # Account settings
-│   ├── api/                          # API routes
-│   │   ├── analyze/                  # AI analysis endpoints
-│   │   └── generate/                 # AI generation endpoints
-│   ├── blog/                         # Blog listing & posts
-│   ├── guides/                       # Expert guides
-│   │   ├── meta-ads-beginners-guide/
-│   │   ├── scaling-meta-ads/
-│   │   ├── creative-strategy-guide/
-│   │   └── unit-economics-guide/
-│   ├── tools/                        # 25+ free tools
-│   │   ├── roas-calculator/
-│   │   ├── ad-copy-generator/
-│   │   ├── break-even-roas/
-│   │   ├── ltv-calculator/
-│   │   └── [many more]/
-│   ├── globals.css                   # Global styles
-│   ├── layout.tsx                    # Root layout
-│   └── page.tsx                      # Homepage
-│
-├── components/                       # React components
-│   ├── ui/                           # shadcn/ui primitives
-│   └── [feature components]/         # Forms, navigation, etc.
-│
-├── lib/                              # Core logic
-│   ├── tools-data.ts                 # Tool definitions
-│   ├── types.ts                      # TypeScript interfaces
-│   └── utils.ts                      # Utilities
-│
-├── hooks/                            # Custom React hooks
-├── public/                           # Static assets
-└── docs/                             # Documentation
-```
-
----
-
-## Tools
-
-### Calculators (`/tools`)
-
-| Path | Tool |
-|------|------|
-| `/tools/roas-calculator` | ROAS Calculator |
-| `/tools/break-even-roas` | Break-Even ROAS Calculator |
-| `/tools/profit-margin-calculator` | Profit Margin Calculator |
-| `/tools/cpm-cpc-calculator` | CPM/CPC/CTR Calculator |
-| `/tools/ltv-calculator` | Customer LTV Calculator |
-| `/tools/cac-calculator` | CAC Calculator |
-| `/tools/mer-calculator` | MER Calculator |
-
-### AI Tools (`/tools`)
-
-| Path | Tool |
-|------|------|
-| `/tools/ad-copy-generator` | AI Ad Copy Generator |
-| `/tools/headline-generator` | AI Headline Generator |
-| `/tools/copywriting-assistant` | AI Copywriting Assistant |
-| `/tools/ad-creative-analyzer` | AI Ad Creative Analyzer |
-| `/tools/landing-page-analyzer` | AI Landing Page Analyzer |
-
-### Analytics (`/tools`)
-
-| Path | Tool |
-|------|------|
-| `/tools/scaling-readiness-quiz` | Scaling Readiness Quiz |
-| `/tools/ab-test-calculator` | A/B Test Calculator |
-| `/tools/utm-builder` | UTM Builder |
-
----
-
-## Guides
-
-Expert playbooks for scaling e-commerce brands:
-
-| Path | Guide |
-|------|-------|
-| `/guides/meta-ads-beginners-guide` | Meta Ads Beginner's Guide |
-| `/guides/scaling-meta-ads` | Scaling Meta Ads Playbook |
-| `/guides/creative-strategy-guide` | Creative Strategy Guide |
-| `/guides/unit-economics-guide` | Unit Economics Guide |
-
----
-
-## Components
-
-### UI Components (`components/ui/`)
-
-Core shadcn/ui components with custom styling:
-
-| Category | Components |
-|----------|------------|
-| **Layout** | `sidebar`, `card`, `sheet`, `separator` |
-| **Forms** | `input`, `textarea`, `checkbox`, `select`, `switch`, `slider` |
-| **Navigation** | `tabs`, `breadcrumb`, `dropdown-menu`, `navigation-menu` |
-| **Feedback** | `dialog`, `alert-dialog`, `popover`, `tooltip`, `sonner` |
-| **Data Display** | `accordion`, `badge`, `avatar`, `progress`, `skeleton` |
-| **Buttons** | `button` with variants |
-
----
-
-## API Routes
-
-### AI Generation
-
-| Endpoint | Method | Purpose |
-|----------|--------|---------|
-| `/api/generate/ad-copy` | POST | Generate ad copy with Claude |
-| `/api/generate/headline` | POST | Generate headlines |
-| `/api/generate/copy` | POST | General copywriting |
-
-### Analysis
-
-| Endpoint | Method | Purpose |
-|----------|--------|---------|
-| `/api/analyze/ad-creative` | POST | Analyze ad creatives |
-| `/api/analyze/landing-page` | POST | Analyze landing pages |
-
----
-
-## Environment Variables
-
-### Required
-
-```env
-# Site
-NEXT_PUBLIC_SITE_URL=https://growth.penangmedia.com
-
-# AI Services
-ANTHROPIC_API_KEY=your_anthropic_key        # Claude for AI tools
-```
-
-### Optional
-
-```env
-# Analytics
-NEXT_PUBLIC_VERCEL_ANALYTICS_ID=your_analytics_id
-```
-
----
-
-## Commands
+### Step 2: Start the Development Server
 
 ```bash
-pnpm dev      # Start development server (http://localhost:3000)
-pnpm build    # Build for production
-pnpm start    # Start production server
-pnpm lint     # Run ESLint
+pnpm dev
 ```
 
----
+### Step 3: View Your App
 
-## Design System
+Open your browser and go to: **[http://localhost:3000](http://localhost:3000)**
 
-### Brand Colors
+(If port 3000 is busy, it might use 3001 instead — check the terminal output)
 
-| Role | Hex | Usage |
-|------|-----|-------|
-| **Background** | `#0a0a0a` | Dark background |
-| **Primary/Accent** | `#cff128` | Lime yellow - CTAs, highlights |
-| **Foreground** | `#ffffff` | Text, contrast |
-| **Muted** | `rgba(255,255,255,0.5)` | Secondary text |
+### Step 4: Stop the Server
 
-### Typography
-
-- **Font Family**: Inter (body), JetBrains Mono (code)
-- **Weights**: Regular (400), Medium (500), Semibold (600), Bold (700)
-
-### Component Patterns
-
-- Dark mode by default
-- Buttons: `rounded-lg` with hover brightness
-- Cards: `bg-white/5 border-white/10` with hover states
-- Focus states use lime yellow ring
-- Glassmorphism with `backdrop-blur`
+Press `Ctrl + C` in the terminal when you're done.
 
 ---
 
-## License
+## Making Changes with AI
 
-This project is **private** and proprietary. All rights reserved.
+This is the fun part! Instead of writing code yourself, you just tell the AI what you want.
+
+### In Cursor
+
+1. Press `Cmd + L` (Mac) or `Ctrl + L` (Windows) to open the AI chat
+2. Type what you want, for example:
+  - *"Make the header background blue"*
+  - *"Add a new button that says 'Contact Us'"*
+  - *"Fix the error on line 45"*
+3. The AI will suggest changes — click **"Accept"** to apply them
+
+### In Claude Code
+
+1. Just type your request in the terminal, for example:
+  - *"Change the homepage title to 'Welcome to Growth Lab'"*
+  - *"Add a footer with social media links"*
+2. Claude will make the changes and show you what it did
+
+### Tips for Better Results
+
+- **Be specific**: "Make the button bigger" → "Make the button 50% wider and add more padding"
+- **Reference files**: "In the header component, change the logo"
+- **Describe the problem**: "The page is blank when I click on Tools — can you fix it?"
 
 ---
 
-<div align="center">
+## Cursor: Ask vs Agent Mode
 
-**Built for e-commerce brands everywhere**
+Cursor has two main modes for working with AI. Here's when to use each:
 
-[Website](https://growth.penangmedia.com) · [Tools](https://growth.penangmedia.com/tools) · [Guides](https://growth.penangmedia.com/guides) · [Penang Media](https://www.penangmedia.com)
+### Ask Mode (the default)
 
-</div>
+**What it does**: Answers questions and suggests code changes, but YOU decide what to apply.
+
+**When to use it**:
+
+- Learning how something works ("How does this function work?")
+- Getting code suggestions you want to review first
+- Making small, careful changes
+- When you want more control
+
+**How to use it**:
+
+- Press `Cmd + L` to open chat
+- Ask your question or describe what you want
+- Review the suggestion and click "Accept" or "Reject"
+
+### Agent Mode
+
+**What it does**: The AI takes control and makes changes automatically. It can edit multiple files, run commands, and fix errors on its own.
+
+**When to use it**:
+
+- Big changes across many files ("Add dark mode to the whole app")
+- When you trust the AI to figure out the details
+- Complex tasks that need multiple steps
+- When you want things done fast
+
+**How to use it**:
+
+1. Press `Cmd + L` to open chat
+2. Click the mode dropdown (usually says "Ask" or "Normal")
+3. Select **"Agent"**
+4. Describe what you want
+5. Watch the AI work — it will show you what it's doing
+
+### Which One Should I Use?
+
+
+| Situation                                 | Use This |
+| ----------------------------------------- | -------- |
+| "What does this code do?"                 | Ask      |
+| "Add a single button"                     | Ask      |
+| "Rebuild the entire navigation"           | Agent    |
+| "Fix all the TypeScript errors"           | Agent    |
+| "I'm not sure what I want yet"            | Ask      |
+| "Build me a contact form with validation" | Agent    |
+
+
+---
+
+## Claude Code: Custom Agents
+
+Claude Code can use **specialized agents** for different tasks. These are like expert assistants for specific jobs.
+
+### What Are Custom Agents?
+
+Think of them as specialists:
+
+- A **code reviewer** agent checks your code for problems
+- An **explorer** agent helps you understand unfamiliar codebases
+- A **general purpose** agent handles complex multi-step tasks
+
+### How to Use Them
+
+Claude Code automatically picks the right agent for the job. But you can also be explicit:
+
+```
+Use a thorough exploration to find all the API routes in this project
+```
+
+```
+Review the code I just wrote for security issues
+```
+
+### Common Agent Types
+
+
+| Agent               | What It Does                                |
+| ------------------- | ------------------------------------------- |
+| **General Purpose** | Complex tasks, research, multi-step work    |
+| **Explorer**        | Finding files, understanding code structure |
+
+
+### Tips
+
+- Let Claude choose the agent — it usually picks the right one
+- For complex tasks, describe what you want in detail
+- If you're not getting good results, try rephrasing your request
+
+---
+
+## What are MCPs?
+
+**MCP** stands for **Model Context Protocol**. In simple terms, MCPs let the AI connect to external tools and services.
+
+### Why Do MCPs Matter?
+
+Without MCPs, the AI can only:
+
+- Read your code
+- Edit files
+- Run terminal commands
+
+With MCPs, the AI can also:
+
+- Browse the web
+- Check your live website
+- Connect to databases
+- Use external APIs
+
+### MCPs in This Project
+
+This project has several MCPs configured:
+
+
+| MCP                    | What It Does                                   |
+| ---------------------- | ---------------------------------------------- |
+| **cursor-ide-browser** | Lets AI browse websites and test your frontend |
+| **vercel**             | Connects to your Vercel deployment             |
+| **stripe**             | Interacts with Stripe for payments             |
+| **context7**           | Gets up-to-date documentation for libraries    |
+
+
+### How to Use Them
+
+You don't need to do anything special! Just ask for what you want:
+
+- *"Check if the homepage looks correct on the live site"*
+- *"Get the latest Next.js documentation for server components"*
+- *"Test the login form in the browser"*
+
+The AI will automatically use the right MCP.
+
+---
+
+## Saving Your Changes (Git Commits)
+
+When you make changes, you need to **save** them to Git. This creates a checkpoint you can go back to if something breaks.
+
+### What is a Commit?
+
+Think of a commit like saving a video game. It's a snapshot of your code at a specific moment. You can always go back to any previous save.
+
+### How to Commit in Cursor
+
+**Option 1: Ask the AI**
+
+```
+Commit my changes with the message "Added contact form"
+```
+
+**Option 2: Use the Source Control Panel**
+
+1. Click the **Source Control** icon in the left sidebar (looks like a branch)
+2. See your changed files listed
+3. Type a message describing what you changed
+4. Click the **checkmark** to commit
+
+### How to Commit in Claude Code
+
+Just tell Claude what to do:
+
+```
+Commit all my changes with a descriptive message
+```
+
+Claude will:
+
+1. Check what files changed
+2. Write a good commit message
+3. Create the commit for you
+
+### Good Commit Messages
+
+
+| Bad           | Good                                   |
+| ------------- | -------------------------------------- |
+| "fixed stuff" | "Fix broken link on homepage"          |
+| "changes"     | "Add email validation to contact form" |
+| "update"      | "Update header to include new logo"    |
+
+
+---
+
+## Pushing Live to Vercel
+
+This project is hosted on **Vercel**. When you push your code to GitHub, Vercel automatically builds and deploys it.
+
+### The Workflow
+
+```
+Make changes → Commit → Push to GitHub → Vercel deploys automatically
+```
+
+### How to Push Your Changes
+
+**In Cursor:**
+
+Ask the AI:
+
+```
+Push my commits to the remote repository
+```
+
+Or use the terminal:
+
+```bash
+git push
+```
+
+**In Claude Code:**
+
+Just say:
+
+```
+Push my changes to GitHub
+```
+
+### Checking Your Deployment
+
+1. Go to [vercel.com](https://vercel.com) and log in
+2. Find your project
+3. See the deployment status:
+  - 🟢 **Ready** = Your site is live
+  - 🟡 **Building** = Vercel is deploying your changes
+  - 🔴 **Error** = Something broke (see next section)
+
+### Preview Deployments
+
+When you push to a branch (not main), Vercel creates a **preview URL**. This lets you test changes before they go live.
+
+---
+
+## Fixing Errors & Rolling Back
+
+Sometimes things break. Here's how to fix them.
+
+### Step 1: Check What Went Wrong
+
+**On Vercel:**
+
+1. Go to your project on [vercel.com](https://vercel.com)
+2. Click on the failed deployment
+3. Click **"View Build Logs"**
+4. Look for red error messages
+
+**Common Errors:**
+
+
+| Error              | What It Means                          |
+| ------------------ | -------------------------------------- |
+| `Module not found` | A package is missing or imported wrong |
+| `Type error`       | TypeScript found a problem             |
+| `Build failed`     | Something in your code broke the build |
+
+
+### Step 2: Fix the Error
+
+**Ask the AI for help!**
+
+In Cursor or Claude Code:
+
+```
+The Vercel build is failing with this error: [paste the error here]
+Can you fix it?
+```
+
+The AI will:
+
+1. Understand the error
+2. Find the problem in your code
+3. Fix it for you
+
+### Step 3: If You Can't Fix It — Roll Back
+
+If everything is broken and you need the old version back:
+
+**Option A: Revert on Vercel (Fastest)**
+
+1. Go to your project on [vercel.com](https://vercel.com)
+2. Click **"Deployments"**
+3. Find the last working deployment (green checkmark)
+4. Click the **three dots** menu
+5. Select **"Promote to Production"**
+
+This instantly puts the old version back live while you fix the code.
+
+**Option B: Revert in Git**
+
+Ask the AI:
+
+```
+The last commit broke everything. Can you revert to the previous commit?
+```
+
+Or manually:
+
+```bash
+# See recent commits
+git log --oneline -5
+
+# Revert the last commit (keeps changes as uncommitted)
+git revert HEAD
+
+# Push the revert
+git push
+```
+
+### Step 4: Test Locally First!
+
+**Pro tip**: Always test your changes locally before pushing:
+
+1. Run `pnpm dev`
+2. Check your changes in the browser
+3. Look for errors in the terminal
+4. Only push when everything works
+
+---
+
+## Quick Reference
+
+### Common Commands
+
+
+| What You Want       | Command                        |
+| ------------------- | ------------------------------ |
+| Install packages    | `pnpm install`                 |
+| Run locally         | `pnpm dev`                     |
+| Stop server         | `Ctrl + C`                     |
+| See changed files   | `git status`                   |
+| Commit changes      | `git commit -m "your message"` |
+| Push to GitHub      | `git push`                     |
+| Pull latest changes | `git pull`                     |
+
+
+### Common AI Requests
+
+```
+"Run the app locally"
+"What does this file do?"
+"Add a button that does X"
+"Fix this error: [paste error]"
+"Commit my changes"
+"Push to GitHub"
+"The build is failing, can you help?"
+```
+
+### Getting Help
+
+- **Cursor**: Press `Cmd + L` and ask anything
+- **Claude Code**: Just type your question
+- **Vercel Issues**: Check the build logs for errors
+- **Still Stuck**: Describe the problem in detail and ask the AI
+
+---
+
+## You've Got This! 🎉
+
+Vibe coding is about **experimenting**. Don't be afraid to:
+
+- Try things and see what happens
+- Ask the AI "dumb" questions (there aren't any!)
+- Break things (you can always roll back)
+- Learn as you go
+
+The AI is here to help. If something doesn't work, just describe what went wrong and ask for help. Happy coding!
