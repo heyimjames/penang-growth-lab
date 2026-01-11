@@ -1,0 +1,56 @@
+---
+description: Security rules for handling API keys and sensitive credentials
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# API Key & Secrets Security
+
+## CRITICAL: Never Commit Secrets to Git
+
+**ALWAYS** ensure API keys, secrets, tokens, and credentials are handled securely:
+
+### Required Practices
+
+1. **Environment Variables Only**
+   - Store ALL API keys in `.env.local` or `.env` files (already in `.gitignore`)
+   - Access via `process.env.YOUR_KEY_NAME`
+   - NEVER hardcode keys directly in source files
+
+2. **Before Every Commit, Verify:**
+   - No API keys in any `.ts`, `.tsx`, `.js`, or config files
+   - No secrets in `next.config.mjs` or any configuration
+   - No tokens in comments or documentation
+   - No credentials in test files or fixtures
+
+3. **Secure Patterns**
+   ```typescript
+   // ✅ CORRECT - Use environment variables
+   const apiKey = process.env.OPENAI_API_KEY;
+   
+   // ❌ NEVER DO THIS
+   const apiKey = "sk-abc123...";
+   ```
+
+4. **Required Environment Variables**
+   - Document required env vars in `.env.example` (with placeholder values only)
+   - Use descriptive names: `OPENAI_API_KEY`, `STRIPE_SECRET_KEY`, etc.
+
+5. **Server-Side Only**
+   - API keys should ONLY be used in server-side code (`app/api/` routes)
+   - Never expose keys to client-side code
+   - Use `NEXT_PUBLIC_` prefix ONLY for non-sensitive public values
+
+### Files That Must NEVER Contain Real Keys
+- `*.ts`, `*.tsx`, `*.js`, `*.jsx`
+- `*.json` (except `.env.example` with placeholders)
+- `*.md` documentation
+- `*.mjs`, `*.cjs` config files
+- Any file tracked by git
+
+### If You Detect a Hardcoded Key
+1. STOP immediately
+2. Remove the key from the code
+3. Replace with `process.env.KEY_NAME`
+4. Rotate the exposed key immediately
+5. Add the key to `.env.local`
